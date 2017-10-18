@@ -1,0 +1,7 @@
+# this compiles the elentari.world server so it
+# can run in the prod environment
+# it makes it statically linked
+# and cross-compiles it to the correct CPU architecture
+
+echo "Salem, I will compile the server for prod"
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build
