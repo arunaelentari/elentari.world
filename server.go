@@ -7,9 +7,11 @@ import (
 )
 
 func main() {
-	fmt.Println("Welcome to my world!")
+	log.Println("Welcome to my world!")
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Howdy, mam!")
 	})
-	log.Fatal(http.ListenAndServe(":1025", nil))
+	port := ":1025"
+	log.Printf("Hola guapa, this is a web server that binds to %v\n", port)
+	log.Fatal(http.ListenAndServe(port, nil))
 }
