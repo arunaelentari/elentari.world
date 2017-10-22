@@ -1,0 +1,20 @@
+#
+# This is a systemd service for elentari.world, which should be copied
+# to /run/systemd/system/ to run the elentari.world server under systemd.
+#
+# After that, we can use systemctl commands like
+# "systemctl status ew" and "systemctl start ew" to interact
+# with systemd.
+#
+[Unit]
+Description=elentari.world server
+After=network-online.target
+
+[Service]
+Environment=ELENTARI_WORLD_ADDR=:80
+ExecStart=/home/core/elentari.world
+Restart=always
+
+[Install]
+WantedBy=network-online.target
+
